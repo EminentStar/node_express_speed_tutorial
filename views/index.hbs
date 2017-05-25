@@ -1,0 +1,40 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<div>
+    {{#each languages}}
+        <p>{{@index}}. {{this}}</p>
+    {{/each}}
+</div>
+<ul>
+    {{#each arr}}
+        <li>
+            <span>{{@index}}</span>
+            <span>unescaped: {{{this}}} vs. </span>
+            <span>escaped: {{this}}</span>
+        </li>
+    {{/each}}
+</ul>
+
+{{#if user.admin}}
+    <button class="launch">Launch Spacecraft</button>
+{{else}}
+    <button class="login">Log in</button>
+{{/if}}
+
+{{#unless user.admin}}
+    <button class="login">Log in</button>
+{{else}}
+    <button class="launch">Launch Spacecraft</button>
+{{/unless}}
+
+{{#with user}}
+    <p>{{name}}</p>
+    {{#with contact}}
+        <span>Twitter: @{{twitter}}</span>
+    {{/with}}
+    <span>Address: {{address.city}},
+{{/with}}
+{{user.address.state}}</span>
+
+{{! @todo comment bula bula}}
+{{!-- comment~ --}}
